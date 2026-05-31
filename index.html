@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tuyển dụng - Trung Tâm Cấp Cứu 115 TP.HCM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Red Hat Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Red+Hat+Display:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+        .pulse-red {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        /* Custom scrollbar for mobile modals */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand Info -->
+            <a href="#" class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <div class="relative w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full border border-blue-100 shadow-sm">
+                    <!-- Backup Vector Icon if local image fails -->
+                    <svg class="absolute w-8 h-8 text-red-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <!-- User's Image (High Priority) -->
+                    <img src="Logo 115.png" alt="Logo Cấp Cứu 115" class="absolute w-12 h-12 object-contain hover:scale-105 transition-transform duration-300 z-10" onerror="this.style.display='none'">
+                </div>
+                <div class="min-w-0">
+                    <h1 style="font-family: 'Times New Roman', serif;" class="font-bold text-blue-900 leading-none text-sm sm:text-base md:text-lg tracking-tight uppercase">TRUNG TÂM CẤP CỨU 115</h1>
+                    <h1 style="font-family: 'Times New Roman', serif;" class="font-bold text-blue-900 leading-none text-sm sm:text-base md:text-lg tracking-tight uppercase">THÀNH PHỐ HỒ CHÍ MINH</h1>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-slate-600 text-sm">
+                <a href="#about" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-600 transition-colors">Giới thiệu</a>
+                <a href="#jobs" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-600 transition-colors">Vị trí tuyển dụng</a>
+                <a href="#benefits" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-600 transition-colors">Quyền lợi</a>
+                <a href="#goals" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-600 transition-colors">Định hướng phát triển</a>
+                <a href="#test-suitability" style="font-family: 'Times New Roman', serif;" class="text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors flex items-center gap-1.5 border border-amber-200/50">
+                    <span style="font-family: 'Times New Roman', serif;" class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span> Trải nghiệm trắc nghiệm phù hợp
+                </a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="flex items-center gap-3">
+                <a href="https://forms.gle/LWDgmxRJDMhU7LxQA" style="font-family: 'Times New Roman', serif;" class="hidden sm:inline-flex bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2.5 rounded-lg text-xs md:text-sm shadow-md shadow-red-500/20 transition-all transform hover:-translate-y-0.5 items-center gap-2">
+                    ỨNG TUYỂN NGAY
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="p-2.5 rounded-lg bg-slate-50 border border-slate-100 text-slate-600 hover:text-blue-600 focus:outline-none lg:hidden transition-colors" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 py-4 space-y-3 shadow-inner transition-all duration-300">
+            <a href="#about" style="font-family: 'Times New Roman', serif;" class="mobile-nav-link block py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600">Giới thiệu</a>
+            <a href="#jobs" style="font-family: 'Times New Roman', serif;" class="mobile-nav-link block py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600">Vị trí tuyển dụng</a>
+            <a href="#benefits" style="font-family: 'Times New Roman', serif;" class="mobile-nav-link block py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600">Quyền lợi</a>
+            <a href="#goals" style="font-family: 'Times New Roman', serif;" class="mobile-nav-link block py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600">Định hướng phát triển</a>
+            <a href="#test-suitability" style="font-family: 'Times New Roman', serif;" class="mobile-nav-link block py-2.5 px-3 rounded-lg text-amber-700 bg-amber-50/50 font-semibold hover:bg-amber-50">Trải nghiệm trắc nghiệm phù hợp</a>
+            <a href="https://forms.gle/LWDgmxRJDMhU7LxQA" style="font-family: 'Times New Roman', serif;" class="block text-center bg-red-600 text-white font-bold py-3 rounded-lg shadow-md hover:bg-red-700 active:scale-[0.98] transition-all">Ứng Tuyển Ngay</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-br from-blue-900 via-indigo-950 to-slate-900 text-white overflow-hidden py-12 sm:py-20 lg:py-28">
+        <!-- Abstract Medical Background Patterns -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <!-- Pulse Wave Vector Art Overlay -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path d="M0,100 L300,100 L350,20 L380,180 L420,80 L460,110 L500,100 L1440,100" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <!-- Left Content Column -->
+            <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-3.5 py-1.5 rounded-full text-blue-300 font-semibold text-xs uppercase tracking-wider mx-auto lg:mx-0">
+                    <span style="font-family: 'Times New Roman', serif;" class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span> THÔNG TIN TUYỂN DỤNG TRUNG TÂM CẤP CỨU 115
+                </div>
+                <h2 class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                    <p style="font-family: 'Times New Roman', serif;" class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200">
+                        GIA NHẬP ĐỘI NGŨ 115 - SẴN SÀNG VÌ SỨC KHỎE NGƯỜI BỆNH
+                    </p>
+                </h2>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                    Trở thành một mảnh ghép trong sứ mệnh bảo vệ sức khỏe người bệnh. Đồng hành cùng Trung tâm Cấp cứu 115 và Mạng lưới cấp cứu ngoài bệnh viện trong công tác đảm bảo sức khỏe của người dân trên địa bàn Thành phố Hồ Chí Minh.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start pt-2">
+                    <a href="#jobs" style="font-family: 'Times New Roman', serif;" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base shadow-lg shadow-red-500/30 transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                        Xem các vị trí tuyển dụng
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-6l-7 7-7-7"/></svg>
+                    </a>
+                    <a href="#about" style="font-family: 'Times New Roman', serif;" class="bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all text-center">
+                        Tìm hiểu về chúng tôi
+                    </a>
+                </div>
+                <!-- Core Values Counter -->
+                <div class="grid grid-cols-3 gap-3 pt-6 border-t border-white/10 max-w-md mx-auto lg:mx-0">
+                    <div class="text-center lg:text-left">
+                        <div style="font-family: 'Times New Roman', serif;" class="text-sm sm:text-lg font-black text-red-400">CHUYÊN NGHIỆP</div>
+                        <p class="text-[10px] sm:text-xs text-slate-400">Trong tác phong</p>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <div style="font-family: 'Times New Roman', serif;" class="text-sm sm:text-lg font-black text-amber-400">TẬN TÂM</div>
+                        <p class="text-[10px] sm:text-xs text-slate-400">Với từng bệnh nhân</p>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <div style="font-family: 'Times New Roman', serif;" class="text-sm sm:text-lg font-black text-emerald-400">KỊP THỜI</div>
+                        <p class="text-[10px] sm:text-xs text-slate-400">Vì thời gian là vàng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Interactive Column -->
+            <div class="lg:col-span-5 relative">
+                <div class="bg-gradient-to-tr from-blue-800/80 to-indigo-900/80 p-5 sm:p-6 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span style="font-family: 'Times New Roman', serif;" class="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider">Thông tin chia sẻ từ Ban Giám Đốc</span>
+                        </div>
+                        <span style="font-family: 'Times New Roman', serif;" class="text-[9px] sm:text-xs bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-bold">Trung tâm Cấp cứu 115</span>
+                    </div>
+
+                    <!-- Testimonials / Dynamic Status ticker -->
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p style="font-family: 'Times New Roman', serif" class="text-xs sm:text-sm text-slate-100 italic leading-relaxed">
+                                "Trong thời gian sắp tới, tập thể Trung tâm Cấp cứu 115 sẽ quyết tâm tiếp tục đoàn kết để hoàn thành nhiều nhiệm vụ hơn nữa, đưa hệ thống cấp cứu ngoại viện tại Thành phố Hồ Chí Minh phát triển theo hướng chuyên nghiệp, đáp ứng nhiều hơn nhu cầu của người dân trên địa bàn".
+                            </p>
+                            <p style="font-family: 'Times New Roman', serif;" class="text-[11px] text-blue-300 font-bold mt-2.5">BS.CKII. Nguyễn Duy Long - Giám đốc Trung tâm Cấp cứu 115</p>
+                        </div>
+                        
+                        <!-- Quick Stats Panel -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-white/5 text-center">
+                                <div style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-2xl font-black text-blue-400">66</div>
+                                <div style="font-family: 'Times New Roman', serif;" class="text-[9px] text-slate-400 uppercase tracking-wider">Trạm vệ tinh cấp cứu 115</div>
+                            </div>
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-white/5 text-center">
+                                <div style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-2xl font-black text-red-400">24/7/365</div>
+                                <div style="font-family: 'Times New Roman', serif;" class="text-[9px] text-slate-400 uppercase tracking-wider">Sẵn sàng phản ứng nhanh</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Box -->
+                        <div class="bg-gradient-to-r from-red-600 to-amber-600 p-4 rounded-xl text-center space-y-2">
+                            <p style="font-family: 'Times New Roman', serif;" class="text-[11px] font-bold uppercase tracking-wider">Bạn đã sẵn sàng gia nhập cùng đội ngũ 115</p>
+                            <a href="#test-suitability" style="font-family: 'Times New Roman', serif;" class="inline-block w-full bg-white text-slate-900 text-xs font-extrabold py-2 rounded-lg hover:bg-slate-100 transition-colors">
+                                TRẢI NGHIỆM TRẮC NGHIỆM TÌNH HUỐNG
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: GIỚI THIỆU CHUNG (Core Mission) -->
+    <section id="about" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Logo Cấp Cứu 115 đại diện chính thống -->
+            <div class="flex justify-center mb-8">
+                <img src="Logo 115.png" alt="Logo Cấp Cứu 115" width="200" height="150"">
+            </div>
+
+
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h3 class="heading-font text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-950">
+                    <p style="font-family: 'Times New Roman', serif;">GIỚI THIỆU</p>
+                </h3>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                    <strong style="font-family: 'Times New Roman', serif;" class="text-slate-900">Trung tâm Cấp cứu 115 Thành phố Hồ Chí Minh</strong> là đơn vị sự nghiệp công lập trực thuộc Sở Y tế Thành phố Hồ Chí Minh, được thành lập theo Quyết định số 6792/QĐ-UBND của Ủy ban nhân dân Thành phố. Là cầu nối giữa người bệnh tại hiện trường và các bệnh viện điều trị trên địa bàn toàn Thành phố.
+                </p>
+            </div>
+
+            <!-- Core Activities cards -->
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
+                <!-- Activity 1 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-100 hover:border-blue-500/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-5 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-xl font-bold text-slate-900 mb-3 heading-font">Hoạt động tiếp nhận và điều phối cấp cứu</h4>
+                        <div style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-xs sm:text-sm leading-relaxed space-y-2 mb-6">
+                            <p style="font-family: 'Times New Roman', serif;">• Tiếp nhận yêu cầu chăm sóc sức khỏe đặc biệt đối với những tình huống cấp cứu của người bệnh thông qua tổng đài 115.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Sàng lọc cuộc gọi là tình huống cấp cứu nguy kịch, tình huống cần cấp cứu, tình huống cần chăm sóc sức khỏe khác.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Điều phối kíp cấp cứu phù hợp nhanh chóng tiếp cận người bệnh để xử trí kịp thời.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Kết nối và tư vấn từ xa cho người bệnh và thân nhân người bệnh xử trí một số tình huống sơ cấp cứu giúp ổn định tình trạng bệnh trong khi chờ kíp cấp cứu đến.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Kết nối và hỗ trợ kíp cấp cứu tại hiện trường (thông báo cho bệnh viện sẽ chuyển bệnh nhân đến, liên hệ với các ban ngành khác trong tình huống cần thiết).</p>
+                        </div>
+                    </div>
+                    <a href="https://file.medinet.gov.vn//Data/soytehcm//ttcapcuu115/Attachments/Chuc%20nang%20nhiem%20vu/187-qd-ttcc115_khoa_dieu_hanh_152202314.pdf" target="_blank" style="font-family: 'Times New Roman', serif;" class="w-full text-center py-2.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold rounded-xl text-xs sm:text-sm transition-colors tracking-wide">
+                        XEM CHI TIẾT HOẠT ĐỘNG
+                    </a>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-100 hover:border-red-500/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-5 group-hover:bg-red-600 group-hover:text-white transition-all">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16V10a2 2 0 00-2-2h-3V6a1 1 0 00-1-1H13m3 11h3m-6-5h3"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-xl font-bold text-slate-900 mb-3 heading-font">Hoạt động cấp cứu ngoài bệnh viện</h4>
+                        <div style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-xs sm:text-sm leading-relaxed space-y-2 mb-6">
+                            <p style="font-family: 'Times New Roman', serif;">• Cấp cứu, hồi sức cho người bệnh ngoài bệnh viện và vận chuyển an toàn người bệnh đến các cơ sở y tế phù hợp với tình trạng của người bệnh để tiếp tục điều trị.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Chăm sóc sức khỏe ban đầu cho người dân có nhu cầu.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Hỗ trợ chuyên môn cấp cứu cho các cơ sở y tế, các cơ quan, xí nghiệp, trường học hoặc đơn vị khác khi có nhu cầu.</p>
+                            <p style="font-family: 'Times New Roman', serif;">• Phục vụ công tác đảm bảo cấp cứu cho các sự kiện, lễ hội, tiếp đón đoàn khách ngoại giao của Thành phố.</p>
+                        </div>
+                    </div>
+                    <a href="https://file.medinet.gov.vn//Data/soytehcm//ttcapcuu115/Attachments/Chuc%20nang%20nhiem%20vu/188-qd-ttcc115_khoa_cap_cuu_ngoai_bv_152202314.pdf" target="_blank" style="font-family: 'Times New Roman', serif;" class="w-full text-center py-2.5 bg-red-50 hover:bg-red-600 text-red-700 hover:text-white font-bold rounded-xl text-xs sm:text-sm transition-colors tracking-wide">
+                        XEM CHI TIẾT HOẠT ĐỘNG
+                    </a>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-100 hover:border-amber-500/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-5 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-xl font-bold text-slate-900 mb-3 heading-font">Hoạt động huấn luyện đào tạo</h4>
+                        <div style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-xs sm:text-sm leading-relaxed space-y-2 mb-6">
+                            <b><p style="font-family: 'Times New Roman', serif;">* Đào tạo chuyên môn cấp cứu ngoài bệnh viện cho nhân viên y tế và trang bị kỹ năng sơ cấp cứu cơ bản cho cộng đồng</p></b>
+                            <p>• Đào tạo liên tục CME cho cán bộ y tế về cấp cứu chấn thương ngoài bệnh viện (ABCDE).</p>
+                            <p>• Tổ chức các khóa huấn luyện kỹ năng sơ cứu sinh tồn cơ bản cho đối tượng lái xe cấp cứu.</p>
+                            <p>• Phổ cập kiến thức sơ cấp cứu ban đầu cho mọi tầng lớp nhân dân trong cộng đồng.</p>
+                            <p>• Tổ chức các lớp huấn luyện hồi sinh tim phổi cơ bản và nâng cao.</p>
+                        </div>
+                    </div>
+                    <a href="https://cme.115.org.vn/dang-ky-cme" target="_blank" style="font-family: 'Times New Roman', serif;" class="w-full text-center py-2.5 bg-amber-50 hover:bg-amber-600 text-amber-700 hover:text-white font-bold rounded-xl text-xs sm:text-sm transition-colors tracking-wide">
+                        ĐĂNG KÝ CME NGAY
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: VỊ TRÍ TUYỂN DỤNG -->
+    <section id="jobs" class="py-16 sm:py-20 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-10 sm:mb-12">
+                <h3 class="heading-font text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-950">
+                    <p style="font-family: 'Times New Roman', serif;">VỊ TRÍ TUYỂN DỤNG</p>
+                </h3>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-sm sm:text-base">
+                    Hãy lựa chọn vị trí phù hợp nhất với chuyên môn và nhiệt huyết của bạn. Nhấp để xem thông tin chi tiết mô tả công việc và yêu cầu ứng tuyển.
+                </p>
+            </div>
+
+            <!-- Optimized Grid Layout for Jobs -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Bác sĩ, y sĩ -->
+                                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-red-500/20 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                        <!-- Ambulance Icon -->
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16V10a2 2 0 00-2-2h-3V6a1 1 0 00-1-1H13m3 11h3m-6-5h3"/>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-xl font-bold text-slate-900 mb-3 heading-font">THÔNG TIN VỊ TRÍ BÁC SĨ, Y SĨ</h4>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-500 mb-4">Bác sĩ (hạng III) - Khoa Cấp cứu ngoài bệnh viện, Bác sĩ (hạng III) - Khoa Điều hành, Bác sĩ (hạng III) - Phòng Kế hoạch Tài chính, Y sĩ (hạng IV) - Khoa Điều hành.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <button style="font-family: 'Times New Roman', serif;" onclick="openJobModal('bsys')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold rounded-xl text-xs transition-colors tracking-wide" align="center">
+                            <a href="https://teestudiovn.my.canva.site/thongtinvitrivieclambacsi" style="font-family: 'Times New Roman', serif;">XEM MÔ TẢ VÀ YÊU CẦU</a>
+                        </button>
+                    </p>
+                </div>
+
+                <!-- Điều dưỡng -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-red-500/20 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                        <!-- Ambulance Icon -->
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16V10a2 2 0 00-2-2h-3V6a1 1 0 00-1-1H13m3 11h3m-6-5h3"/>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-xl font-bold text-slate-900 mb-3 heading-font">THÔNG TIN VỊ TRÍ ĐIỀU DƯỠNG</h4>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-500 mb-4">Điều dưỡng (hạng III) - Khoa Cấp cứu ngoài bệnh viện, Điều dưỡng (hạng IV) - Khoa Cấp cứu ngoài bệnh viện, Điều dưỡng (hạng III) - Khoa Điều hành, Điều dưỡng (hạng IV) - Khoa Điều hành, Điều dưỡng (hạng III) - Phòng Kế hoạch Tài chính, Điều dưỡng (hạng III) - Phòng Vật tư trang thiết bị Y tế - Dược.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <button style="font-family: 'Times New Roman', serif;" onclick="openJobModal('dd')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold rounded-xl text-xs transition-colors tracking-wide" align="center">
+                            <a href="https://teestudiovn.my.canva.site/thongtinvitrivieclamdieuduong" style="font-family: 'Times New Roman', serif;">XEM MÔ TẢ VÀ YÊU CẦU</a>
+                        </button>
+                    </p>
+                </div>
+
+                <!-- Lái xe -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-red-500/20 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                        <!-- Ambulance Icon -->
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16V10a2 2 0 00-2-2h-3V6a1 1 0 00-1-1H13m3 11h3m-6-5h3"/>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-xl font-bold text-slate-900 mb-3 heading-font">THÔNG TIN VỊ TRÍ LÁI XE</h4>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-500 mb-4">Lái xe cấp cứu.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <button style="font-family: 'Times New Roman', serif;" onclick="openJobModal('lx')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold rounded-xl text-xs transition-colors tracking-wide" align="center">
+                            <a href="https://teestudiovn.my.canva.site/laixecapcuu" style="font-family: 'Times New Roman', serif;">XEM MÔ TẢ VÀ YÊU CẦU</a>
+                        </button>
+                    </p>
+                </div>
+
+                <!-- Khối hành chính -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-red-500/20 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                        <!-- Ambulance Icon -->
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M21 16V10a2 2 0 00-2-2h-3V6a1 1 0 00-1-1H13m3 11h3m-6-5h3"/>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-xl font-bold text-slate-900 mb-3 heading-font">THÔNG TIN VỊ TRÍ KHỐI HÀNH CHÍNH </h4>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-500 mb-4">Chuyên viên về tổng hợp - Phòng Kế hoạch Tài chính, Chuyên viên về truyền thông - Phòng Kế hoạch Tài chính, Chuyên viên về hành chính văn phòng - Phòng Tổ chức Hành chính, Chuyên viên về quản trị công sở - Phòng Tổ chức Hành chính.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <button style="font-family: 'Times New Roman', serif;" onclick="openJobModal('hc')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold rounded-xl text-xs transition-colors tracking-wide" align="center">
+                            <a href="https://teestudiovn.my.canva.site/thong-tin-vi-tri-viec-lam-khoi-hanh-chinh" style="font-family: 'Times New Roman', serif;">XEM MÔ TẢ VÀ YÊU CẦU</a>
+                        </button>
+                    </p>
+                </div>
+               
+        </div>
+    </section>
+
+    <!-- SECTION: QUYỀN LỢI VÀ CHẾ ĐỘ -->
+        <section id="benefits" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="heading-font text-3xl sm:text-4xl font-extrabold text-slate-950">
+                    <p style="font-family: 'Times New Roman', serif;">QUYỀN LỢI, CHẾ ĐỘ</p>
+                    </h3>
+                    <h3 class="heading-font text-3xl sm:text-4xl font-extrabold text-slate-950">
+                        <p style="font-family: 'Times New Roman', serif;">Quyền lợi, chế độ khi làm việc tại Trung tâm Cấp cứu 115</p>
+                    </h3>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-slate-600 leading-relaxed">
+                        Trung tâm Cấp cứu 115 không chỉ là nơi làm việc, mà còn là nơi để rèn luyện các kỹ năng cứu sống người bệnh, góp phần hình thành hành trình phát triển nghề nghiệp lâu dài với chế độ phúc lợi đầy đủ cho nhân viên khi làm việc tại Trung tâm.
+                    </p>
+                    
+                    <!--<div class="p-6 bg-blue-50/70 border border-blue-100 rounded-2xl">
+                        <p class="text-sm text-blue-800 font-semibold mb-2">Đặc quyền Đào tạo Độc quyền:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Ứng viên chưa có Chứng chỉ hành nghề (CCHN) hoặc Giấy phép hành nghề (GPHN) sẽ được hỗ trợ tận tình và được liên kết thực hành để cấp chứng chỉ trong thời gian ngắn nhất.
+                        </p>
+                    </div>-->
+                </div>
+
+                <!-- Right Cards Grid -->
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                    <!-- Benefit 1 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4 text-lg font-bold">1</div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-900 mb-2 heading-font">Môi trường làm việc năng động</h4>
+                        <p style="font-family: 'Times New Roman', serif;"class="text-xs text-slate-600">Được làm việc trong môi trường thực tế của hoạt động cấp cứu ngoài bệnh viện.</p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4 text-lg font-bold">2</div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-900 mb-2 heading-font">Tạo điều kiện tham gia học để được cấp CCHN/GPHN</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600">Hỗ trợ tạo điều kiện cho bác sĩ, y sĩ, điều dưỡng tham gia thực hành lâm sàng liên tục tại các bệnh viện được phép cấp CCHN/GPHN</p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4 text-lg font-bold">3</div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-900 mb-2 heading-font">Đào tạo nâng cao liên tục</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600">Được tạo điều kiện đào tạo kỹ năng cấp cứu ngoài bệnh viện cơ bản, nâng cao đối với lực lượng nhân viên y tế và tham gia bồi dưỡng nghiệp vụ đối với khối hành chính.</p>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4 text-lg font-bold">4</div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-900 mb-2 heading-font">Chế độ phúc lợi đầy đủ</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600">Hưởng mức lương, phụ cấp theo quy định, bảo hiểm xã hội, bảo hiểm y tế</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION: TRẮC NGHIỆM ĐỘ PHÙ HỢP -->
+    <section id="test-suitability" class="py-16 sm:py-20 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center space-y-4 mb-8 sm:mb-12">
+                <span style="font-family: 'Times New Roman', serif;" class="inline-block text-amber-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">TRẢI NGHIỆM TƯƠNG TÁC NGẮN</span>
+                <h3 style="font-family: 'Times New Roman', serif;" class="heading-font text-2xl sm:text-3xl font-extrabold">Trả lời các câu hỏi trắc nghiệm để đánh mức độ tương thích</h3>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto">
+                    Chỉ với 4 câu hỏi trắc nghiệm tình huống thực tế, khám phá ngay độ tương thích của bản thân với hoạt động cấp cứu ngoài bệnh viện đầy thử thách nhưng cực kỳ ý nghĩa.
+                </p>
+            </div>
+
+            <!-- Quiz Container Card -->
+            <div id="quiz-container" class="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-8 backdrop-blur-md relative overflow-hidden">
+                <!-- Question 1 -->
+                <div id="question-1" class="quiz-step space-y-5">
+                    <div style="font-family: 'Times New Roman', serif;" class="flex justify-between items-center text-xs font-semibold text-slate-400">
+                        <span style="font-family: 'Times New Roman', serif;">CÂU HỎI 1/4</span>
+                        <span style="font-family: 'Times New Roman', serif;">Mức độ giải quyết tình huống</span>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-base sm:text-lg font-bold text-white">Khi đối diện với một tình huống khẩn cấp bất ngờ cần xử lý ngay lập tức, bạn thường xử lý tình huống như thế nào?</h4>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(1, 3)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">A. Tôi bình tĩnh quan sát nhanh, đưa ra quyết định hành động lập tức.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(1, 2)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">B. Tôi hơi hồi hộp, lo lắng ban đầu nhưng sau đó nhanh chóng lấy lại bình tĩnh và xử lý tình huống.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(1, 1)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">C. Tôi thích lập kế hoạch chi tiết từ trước và không chuộng những thay đổi đột ngột.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div id="question-2" class="quiz-step hidden space-y-5">
+                    <div style="font-family: 'Times New Roman', serif;" class="flex justify-between items-center text-xs font-semibold text-slate-400">
+                        <span style="font-family: 'Times New Roman', serif;">CÂU HỎI 2/4</span>
+                        <span style="font-family: 'Times New Roman', serif;">Tinh thần tập thể</span>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-base sm:text-lg font-bold text-white">Vai trò yêu thích nhất của bạn trong một tổ đội cứu nạn hành động là gì?</h4>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(2, 3)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">A. Sẵn sàng phối hợp nhịp nhàng với các thành viên của tổ đội tại bất kỳ vị trí nào tổ đội đang cần gấp.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(2, 2)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">B. Người tiên phong dẫn đường, chủ động dẫn dắt tổ đội xử lý tình huống.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(2, 1)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">C. Đóng góp chuyên môn độc lập của mình một cách hoàn hảo và chính xác nhất.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div id="question-3" class="quiz-step hidden space-y-5">
+                    <div style="font-family: 'Times New Roman', serif;" class="flex justify-between items-center text-xs font-semibold text-slate-400">
+                        <span style="font-family: 'Times New Roman', serif;">CÂU HỎI 3/4</span>
+                        <span style="font-family: 'Times New Roman', serif;">Động lực nội tại</span>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-base sm:text-lg font-bold text-white">Động lực lớn nhất để bạn tự hào và nỗ lực cống hiến mỗi ngày là:</h4>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(3, 3)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">A. Trực tiếp tham gia cấp cứu, cứu sống người bệnh có giá trị nhân văn và thiêng liêng.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(3, 2)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">B. Được làm việc, tích lũy kiến thức, kinh nghiệm thực tế.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(3, 1)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">C. Công việc ổn định, lâu dài cùng những chế độ đảm bảo phúc lợi từ Trung tâm.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div id="question-4" class="quiz-step hidden space-y-5">
+                    <div style="font-family: 'Times New Roman', serif;" class="flex justify-between items-center text-xs font-semibold text-slate-400">
+                        <span style="font-family: 'Times New Roman', serif;">CÂU HỎI 4/4</span>
+                        <span style="font-family: 'Times New Roman', serif;">Thích ứng thời gian</span>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-base sm:text-lg font-bold text-white">Quan điểm của bạn như thế nào đối với chế độ chia ca trực cấp cứu luân phiên?</h4>
+                    <div class="space-y-3">
+                        <button onclick="nextQuizStep(4, 3)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">A. Sẵn sàng tham gia trực luân phiên, bất kể giờ giấc vì tính chất cứu người.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(4, 2)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">B. Sẵn sàng trực nhưng cần lịch nghỉ bù khoa học để hồi phục thể lực tốt nhất.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                        <button onclick="nextQuizStep(4, 1)" class="w-full text-left bg-white/5 hover:bg-blue-600 active:bg-blue-700 border border-white/10 hover:border-blue-500 p-4 rounded-xl transition-all flex items-center justify-between gap-3 group">
+                            <span style="font-family: 'Times New Roman', serif;" class="text-xs sm:text-sm">C. Tôi chỉ ưu tiên cống hiến sức mình trong giờ hành chính cố định.</span>
+                            <span class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 shrink-0 flex items-center justify-center text-xs">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Block -->
+                <div id="quiz-result" class="quiz-step hidden text-center space-y-6 py-6">
+                    <div class="inline-flex p-4 bg-emerald-500/15 text-emerald-400 rounded-full border border-emerald-500/20 mb-2">
+                        <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Times New Roman', serif;" class="text-xl sm:text-2xl font-bold heading-font" id="result-title">Xác nhận phù hợp</h4>
+                    <p style="font-family: 'Times New Roman', serif;" class="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed" id="result-text">
+                        Đang phân tích phản hồi trắc nghiệm...
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                        <a href="https://forms.gle/LWDgmxRJDMhU7LxQA" style="font-family: 'Times New Roman', serif;" class="bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-md shadow-red-500/20">
+                            Nộp hồ sơ ứng tuyển ngay
+                        </a>
+                        <button onclick="resetQuiz()" style="font-family: 'Times New Roman', serif;" class="bg-white/10 hover:bg-white/15 border border-white/20 text-slate-300 px-6 py-3 rounded-xl text-sm transition-all">
+                            Thực hiện lại câu hỏi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ĐỊNH HƯỚNG PHÁT TRIỂN -->
+    <section id="goals" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h3 style="font-family: 'Times New Roman', serif;" class="heading-font text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-950">
+                    ĐỊNH HƯỚNG PHÁT TRIỂN
+                </h3>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Trung tâm Cấp cứu 115 Thành phố Hồ Chí Minh hướng đến xây dựng hệ thống cấp cứu ngoài bệnh viện tại Thành phố Hồ Chí Minh phát triển theo hướng chuyên nghiệp, đáp ứng thời gian cứu sống người bệnh và định hướng phát triển theo mô hình <strong class="text-slate-900">đa tầng - đa cực - đa Trung tâm</strong>.
+                </p>
+            </div>
+
+            <!-- Roadmap 7 Goals Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
+                <!-- Goal 1 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">01</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Xây dựng hệ thống các Trung tâm Cấp cứu 115 chuyên nghiệp</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Phát triển hệ thống cấp cứu ngoài bệnh viện theo hướng chuyên nghiệp, đảm bảo cung cấp dịch vụ chất lượng cho người dân trên địa bàn Thành phố.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 2 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">02</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Cổng tiếp nhận và điều phối cấp cứu 115</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Đưa vào sử dụng Hệ thống thông tin hỗ trợ điều phối cấp cứu (giai đoạn 1) giúp định vị và rút ngắn thời gian điều phối.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 3 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">03</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Triển khai các chương trình đào tạo cho nhân viên y tế</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Tổ chức các lớp đào tạo nâng cao năng lực cho đội ngũ nhân viên y tế cấp cứu ngoài bệnh viện theo hướng chuyên nghiệp.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 4 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">04</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Cơ chế thu hút nguồn nhân lực làm việc tại Trung tâm</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Xây dựng các cơ chế, chính sách thu hút nguồn nhân lực chất lượng phục vụ cho hoạt động cấp cứu ngoài bệnh viện và Cổng điều phối, tiếp nhận cấp cứu.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 5 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">05</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Đa dạng hóa loại hình hoạt động, dịch vụ cấp cứu</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Đa dạng hóa hình thức tiếp cận, cung cấp dịch vụ cấp cứu ngoài bệnh viện phù hợp với đặc điểm địa lý của Thành phố.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 6 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">06</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Nâng cao chất lượng hoạt động của các trạm vệ tinh cấp cứu 115</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Đào tạo nâng cao kỹ năng cho đội ngũ y tế của các trạm vệ tinh, góp phần nâng cao chất lượng hoạt động, phủ sóng mạng lưới rộng khắp.</p>
+                    </div>
+                </div>
+
+                <!-- Goal 7 -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex gap-3.5 sm:col-span-2 lg:col-span-1 xl:col-span-2 hover:shadow-sm transition-all">
+                    <span class="text-2xl sm:text-3xl font-black text-blue-200 leading-none shrink-0">07</span>
+                    <div>
+                        <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-950 mb-1 heading-font text-sm sm:text-base">Phổ cập kiến thức sơ cấp cứu cho người dân</h4>
+                        <p style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-600 leading-relaxed">Tổ chức các lớp đào tạo về sơ cấp cứu cộng đồng để người dân biết các kỹ năng sơ cấp cứu cơ bản, từ đó giúp người dân biết tự cứu mình và người thân.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT & LOCATION MAP -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <!-- Left Info Panel -->
+            <div class="md:col-span-5 space-y-5 sm:space-y-6">
+                <h3 style="font-family: 'Times New Roman', serif;" class="heading-font text-2xl sm:text-3xl font-extrabold text-slate-950">THÔNG TIN LIÊN HỆ VÀ NỘP HỒ SƠ TUYỂN DỤNG</h3>
+                <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-blue-900 text-base sm:text-lg">Phòng Tổ chức Hành chính - Trung tâm Cấp cứu 115</h4>
+                <p style="font-family: 'Times New Roman', serif;" class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    Nếu bạn có bất kỳ thắc mắc về chỉ tiêu tuyển dụng, tiêu chuẩn vị trí ứng tuyển, mô tả công việc, các loại giấy tờ cần nộp, xin vui lòng liên hệ theo các kênh thông tin bên dưới để được hỗ trợ.
+                </p>
+
+                <!-- Detailed list -->
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 bg-white text-blue-600 rounded-lg flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Times New Roman', serif;" class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Số điện thoại liên hệ</div>
+                            <p style="font-family: 'Times New Roman', serif;" class="text-slate-950 font-bold text-xs sm:text-sm mt-0.5">(028) 38 639139 - (028) 38 639140</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 bg-white text-blue-600 rounded-lg flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Times New Roman', serif;" class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Địa chỉ nộp hồ sơ</div>
+                            <p style="font-family: 'Times New Roman', serif;" class="text-slate-950 font-bold text-xs sm:text-sm mt-0.5">266A Đường Lý Thường Kiệt, Phường Diên Hồng, TP.HCM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 bg-white text-blue-600 rounded-lg flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Times New Roman', serif;" class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Hòm thư điện tử</div>
+                            <p style="font-family: 'Times New Roman', serif;" class="font-bold text-xs sm:text-sm mt-0.5"><a href="mailto:cc115.syt@tphcm.gov.vn" class="text-blue-600 hover:underline transition-all">cc115.syt@tphcm.gov.vn</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Interactive Map/Graphics Mockup -->
+            <div class="md:col-span-7 bg-white border border-slate-200 rounded-3xl p-4 sm:p-5 shadow-sm overflow-hidden relative">
+                <div class="flex items-center justify-between mb-3.5">
+                    <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-slate-900 heading-font text-xs sm:text-sm">VỊ TRÍ TRÊN BẢN ĐỒ</h4>
+                    <span style="font-family: 'Times New Roman', serif;" class="text-[10px] text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full font-semibold border border-blue-100">Phường Diên Hồng</span>
+                </div>
+                
+                <!-- Stylized Mock Map showing locations (Lý Thường Kiệt, Lữ Gia, Tô Hiến Thành) -->
+                <div class="bg-blue-50/50 h-64 rounded-2xl relative overflow-hidden border border-slate-200">
+                    <!-- Stylized Street Grids -->
+                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    
+                    <!-- Simulating Street names as paths -->
+                    <div style="font-family: 'Times New Roman', serif;" class="absolute top-[20%] left-0 w-full h-8 bg-slate-200/80 -rotate-12 flex items-center px-6 text-[9px] font-bold text-slate-500 tracking-wider">ĐƯỜNG TÔ HIẾN THÀNH</div>
+                    <div style="font-family: 'Times New Roman', serif;" class="absolute top-0 left-[35%] w-8 h-full bg-slate-200/80 rotate-12 flex items-center justify-center text-[9px] font-bold text-slate-500 tracking-wider [writing-mode:vertical-lr]">ĐƯỜNG LÝ THƯỜNG KIỆT</div>
+                    <div style="font-family: 'Times New Roman', serif;" class="absolute bottom-[20%] left-0 w-2/3 h-6 bg-slate-200/80 rotate-6 flex items-center px-4 text-[9px] font-bold text-slate-500 tracking-wider">ĐƯỜNG LỮ GIA</div>
+
+                    <!-- Target Hub (Pulsing Center) -->
+                    <div class="absolute top-[40%] left-[45%] -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+                        <div style="font-family: 'Times New Roman', serif;" class="bg-slate-900 text-white font-bold text-[10px] px-2.5 py-1 rounded-full shadow-md mt-2 tracking-wide uppercase whitespace-nowrap">
+                             <a href="https://www.google.com/maps/place/Trung+t%C3%A2m+C%E1%BA%A5p+c%E1%BB%A9u+115+TP.HCM/@10.7703529,106.6559494,17z/data=!3m1!4b1!4m6!3m5!1s0x31752ec1f77e528f:0xd61bc19d75a8355c!8m2!3d10.7703476!4d106.6585243!16s%2Fg%2F11bymz9_fv?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D" style="font-family: 'Times New Roman', serif;" target="_blank" class="text-blue-600 font-bold hover:underline flex items-center gap-1">TRUNG TÂM CẤP CỨU 115</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-3.5 flex items-center gap-1 text-[11px] text-slate-500">
+                    <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    <p style="font-family: 'Times New Roman', serif;">Số 266A Đường Lý Thường Kiệt, Phường Diên Hồng, Thành phố Hồ Chí Minh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 lg:gap-12">
+            <!-- Brand -->
+            <div class="md:col-span-6 space-y-4">
+                <div class="flex items-center gap-3">
+                    <img src="Logo 115_1.png" alt="Logo Cấp Cứu 115" class="w-12 h-12 object-contain hover:scale-105 transition-transform duration-300">
+                    <span style="font-family: 'Times New Roman', serif;" class="font-bold text-white tracking-wider text-sm sm:text-base md:text-lg heading-font">TRUNG TÂM CẤP CỨU 115 TP.HCM</span>
+                </div>
+                <p style="font-family: 'Times New Roman', serif;" class="text-xs leading-relaxed text-slate-400 max-w-md">
+                    Địa chỉ: Số 266A Đường Lý Thường Kiệt, Phường Diên Hồng, Thành phố Hồ Chí Minh.<br>
+                    Email: cc115.syt@tphcm.gov.vn.<br>
+                    Số điện thoại liên hệ: (028) 38639139 - (028) 38639140.<br>
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-white heading-font text-xs sm:text-sm uppercase tracking-wider">Đường dẫn thao tác nhanh</h4>
+                <div class="grid grid-cols-1 gap-2.5 text-xs">
+                    <a href="#about" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-400 transition-colors">Giới thiệu</a>
+                    <a href="#jobs" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-400 transition-colors">Vị trí tuyển dụng</a>
+                    <a href="#benefits" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-400 transition-colors">Quyền lợi và chế độ</a>
+                    <a href="#goals" style="font-family: 'Times New Roman', serif;" class="hover:text-blue-400 transition-colors">Định hướng phát triển</a>
+                    <a href="https://115.org.vn/" style="font-family: 'Times New Roman', serif;" target="_blank" class="hover:text-amber-400 text-amber-500 font-bold transition-colors">Về trang chủ Trung tâm</a>
+                </div>
+            </div>
+            
+            <!-- Slogan & Copyright -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 style="font-family: 'Times New Roman', serif;" class="font-bold text-white heading-font text-xs sm:text-sm uppercase tracking-wider">Thông Tin Bản Quyền</h4>
+                <p style="color: white;" style="font-family: 'Times New Roman', serif;" class="text-xs text-slate-500 leading-relaxed">
+                    <b>©2026 Bản quyền thuộc sở hữu của Trung tâm Cấp cứu 115 Thành phố Hồ Chí Minh.</b>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JOB DESCRIPTION MODAL (DÀNH CHO TRẢI NGHIỆM MOBILE MƯỢT MÀ) -->
+    <div id="job-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="job-modal-content">
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                <div>
+                    <h3 style="font-family: 'Times New Roman', serif;" id="modal-job-title" style="font-family: 'Times New Roman', serif;" class="text-lg sm:text-xl font-bold text-slate-950">Tiêu đề vị trí tuyển dụng</h3>
+                    <p style="font-family: 'Times New Roman', serif;" id="modal-job-subtitle" class="text-xs text-slate-500 mt-0.5">Khoa chuyên môn trực thuộc</p>
+                </div>
+                <button onclick="closeJobModal()" class="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors" aria-label="Close Modal">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            
+            <!-- Modal Body (Scrollable) -->
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-5 text-sm" id="modal-body-content">
+                <!-- Dynamic Content Loaded via JS -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row gap-2.5">
+                <a id="modal-apply-btn" href="https://forms.gle/LWDgmxRJDMhU7LxQA" target="_blank" style="font-family: 'Times New Roman', serif;" class="w-full sm:flex-1 text-center bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white font-bold py-3 rounded-xl text-sm transition-all shadow-md shadow-red-500/10">
+                    ỨNG TUYỂN NGAY
+                </a>
+                <button onclick="closeJobModal()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-6 py-3 rounded-xl text-sm transition-all">
+                    Đóng cửa sổ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT FOR INTERACTIONS -->
+    <script>
+        // 1. Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                // Change to 'X' close icon
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Return to hamburger icon
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        // Close mobile menu on clicking links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // 2. Interactive Gamified Quiz Logic
+        let currentStep = 1;
+        let totalScore = 0;
+
+        function nextQuizStep(step, scoreValue) {
+            // Defensive score conversion (if letters A, B, C are passed from original buttons)
+            let score = 0;
+            if (typeof scoreValue === 'number') {
+                score = scoreValue;
+            } else if (scoreValue === 'A') {
+                score = 3;
+            } else if (scoreValue === 'B') {
+                score = 2;
+            } else if (scoreValue === 'C') {
+                score = 1;
+            }
+
+            totalScore += score;
+            
+            // Hide current step
+            document.getElementById(`question-${step}`).classList.add('hidden');
+            
+            if (step < 4) {
+                // Show next step
+                currentStep = step + 1;
+                document.getElementById(`question-${currentStep}`).classList.remove('hidden');
+            } else {
+                // Evaluate Results
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            const resultBlock = document.getElementById('quiz-result');
+            const resultTitle = document.getElementById('result-title');
+            const resultText = document.getElementById('result-text');
+
+            resultBlock.classList.remove('hidden');
+
+            if (totalScore >= 10) {
+                resultTitle.innerHTML = "Xác nhận phù hợp: Nhóm Tiên Phong Lâm Sàng ⚡";
+                resultText.innerHTML = "Bạn sở hữu tư duy hành xử kiên quyết, bình tĩnh vững vàng trước thử thách và một tinh thần cống hiến khẩn cấp mãnh liệt. Bạn rất phù hợp với vị trí **Bác sĩ, Y sĩ hay Điều dưỡng** sinh ra để dành cho bạn! Hãy tham gia cùng đội ngũ nhân viên của Trung tâm Cấp cứu 115 để tạo ra kỳ tích.";
+            } else if (totalScore >= 7) {
+                resultTitle.innerHTML = "Xác nhận phù hợp: Nhóm Y Khoa Đồng Hành 🤝";
+                resultText.innerHTML = "Bạn là người có khả năng hợp tác tổ đội tuyệt vời, bình tĩnh vượt khó và cực kỳ đáng tin cậy. Bạn rất phù hợp với vị trí **Lái xe cấp cứu, Tổng đài viên**. Đây là những 'mắt xích' tối quan trọng trong quy trình cứu sống người bệnh!";
+            } else {
+                resultTitle.innerHTML = "Xác nhận phù hợp: Nhóm Tổ Chức & Kế Hoạch 📊";
+                resultText.innerHTML = "Bạn là người kỹ lưỡng, quy củ, coi trọng sự ổn định bền bỉ và chất lượng quản lý chuẩn chỉnh. Bạn cực kỳ thích hợp với các bộ phận tại **Khối hành chính**. Hệ thống cần hậu phương vững chắc như bạn để vận hành thông suốt!";
+            }
+        }
+
+        function resetQuiz() {
+            // Reset state variables
+            currentStep = 1;
+            totalScore = 0;
+
+            // Hide all steps & results
+            document.querySelectorAll('.quiz-step').forEach(step => {
+                step.classList.add('hidden');
+            });
+
+            // Show first question
+            document.getElementById('question-1').classList.remove('hidden');
+        }
+
+        const jobModal = document.getElementById('job-modal');
+        const jobModalContent = document.getElementById('job-modal-content');
+        const modalJobTitle = document.getElementById('modal-job-title');
+        const modalJobSubtitle = document.getElementById('modal-job-subtitle');
+        const modalBodyContent = document.getElementById('modal-body-content');
+        const modalApplyBtn = document.getElementById('modal-apply-btn');
+
+        function openJobModal(key) {
+            const data = jobData[key];
+            if (!data) return;
+
+            // Load data into modal
+            modalJobTitle.innerText = data.title;
+            modalJobSubtitle.innerText = data.subtitle;
+            modalBodyContent.innerHTML = data.content;
+            modalApplyBtn.href = data.applyLink;
+
+            // Unhide modal
+            jobModal.classList.remove('hidden');
+            // Play smooth scale and fade-in transitions
+            setTimeout(() => {
+                jobModalContent.classList.remove('scale-95', 'opacity-0');
+                jobModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Prevent body scroll behind modal
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeJobModal() {
+            jobModalContent.classList.remove('scale-100', 'opacity-100');
+            jobModalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                jobModal.classList.add('hidden');
+            }, 200);
+
+            // Enable body scroll again
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Close modal on background click
+        jobModal.addEventListener('click', (e) => {
+            if (e.target === jobModal) {
+                closeJobModal();
+            }
+        });
+    </script>
+</body>
+</html>
